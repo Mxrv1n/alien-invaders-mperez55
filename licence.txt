@@ -2,4 +2,4 @@
 
 
 
-images/ship.bpm 
+images/ship.bpm https://raw.githubusercontent.com/ehmatthes/pcc_3e/refs/heads/main/chapter_12/adding_ship_image/images/ship.bmp
