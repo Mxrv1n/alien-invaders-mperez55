@@ -1,3 +1,14 @@
+"""
+Program Name: Alien Invasion
+Author: Marvin Perez
+File: alien_invasion.py
+
+Purpose:
+This module is part of the Alien Invasion game built using Pygame.
+It is part of the game mechanics track that modifies the base games to include new features and mechanics. 
+
+Date: 04/11/2026
+"""
 import sys
 import pygame
 from ship import Ship
@@ -20,7 +31,7 @@ class AlienInvasion:
         pygame.display.set_caption("Alien Invasion")
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
-        
+
     def run_game(self):
         """Start the main loop for the game."""
         while True:

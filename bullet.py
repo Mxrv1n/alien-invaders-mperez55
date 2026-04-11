@@ -1,3 +1,14 @@
+"""
+Program Name: Alien Invasion
+Author: Marvin Perez
+File: bullet.py
+
+Purpose:
+This module is part of the Alien Invasion game built using Pygame.
+It is part of the game mechanics track that modifies the base games to include new features and mechanics. 
+
+Date: 04/11/2026
+"""
 import pygame
 from pygame.sprite import Sprite
 
