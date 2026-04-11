@@ -20,6 +20,7 @@ class AlienInvasion:
         pygame.display.set_caption("Alien Invasion")
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
+        
     def run_game(self):
         """Start the main loop for the game."""
         while True:
@@ -73,7 +74,7 @@ class AlienInvasion:
 
         # Get rid of bullets that have disappeared.
         for bullet in self.bullets.copy():
-            if bullet.rect.bottom <= 0:
+            if bullet.rect.right >= self.settings.screen_width:
                 self.bullets.remove(bullet)
 
     def _update_screen(self):
