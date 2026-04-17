@@ -34,13 +34,15 @@ class AlienInvasion:
 
         current_x = alien_width
         while current_x < (self.settings.screen_width - (2 * alien_width)):
-            new_alien = Alien(self)
-            new_alien.x = current_x
-            new_alien.rect.x = new_alien.x
-            self.aliens.add(new_alien)
+            self._create_alien(current_x)
             current_x += alien_width * 2
-        self.aliens.add(new_alien)
 
+    def _create_alien(self, x_position):
+        """Create an alien and place it in the row."""
+        alien = Alien(self)
+        alien.x = x_position
+        alien.rect.x = alien.x
+        self.aliens.add(alien)
     def run_game(self):
         """Start the main loop for the game."""
         while True:
