@@ -87,6 +87,7 @@ class AlienInvasion:
             print("Ship hit!")
             self.ship_hit()
         
+        self.check_aliens_bottom()
         
     def _check_events(self):
         """Respond to keypresses and mouse events."""
@@ -171,6 +172,14 @@ class AlienInvasion:
 
         # Pause.
         sleep(0.5)
+    
+    def check_aliens_bottom(self):
+        """Check if any aliens have reached the bottom of the screen."""
+        for alien in self.aliens.sprites():
+            if alien.rect.bottom >= self.settings.screen_height:
+                # Treat this the same as if the ship got hit.
+                self.ship_hit()
+                break
 
 
 if __name__ == '__main__':
