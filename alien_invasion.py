@@ -59,6 +59,7 @@ class AlienInvasion:
             self._update_screen()
             self._update_aliens()
             self.clock.tick(60) # Limit the frame rate to 60 
+
     def check_fleet_edges(self):
         """Respond appropriately if any aliens have reached an edge."""
         for alien in self.aliens.sprites():
@@ -122,6 +123,18 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
+        
+        self._check_bullet_alien_collisions()
+
+    def _check_bullet_alien_collisions(self):
+        """Respond to bullet-alien collisions."""
+        # Remove any bullets and aliens that have collided.
+        collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True) 
+
+        if not self.aliens:
+            # Destroy existing bullets and create new fleet.
+            self.bullets.empty()
+            self._create_fleet()
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
