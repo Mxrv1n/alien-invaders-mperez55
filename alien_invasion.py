@@ -35,26 +35,29 @@ class AlienInvasion:
     def _create_fleet(self):
         """Create the fleet of aliens"""
         #Create an alien and keep adding aliens until there is no more room.
-        #Spacing between each alien is equal to one alien width.
+        #Spacing between each alien is equal to one alien height.
         alien = Alien(self)
         alien_width, alien_height = alien.rect.size
 
-        current_x, current_y = alien_width, alien_height
-        while current_y < (self.settings.screen_height - (3 * alien_height)):
-            while current_x < (self.settings.screen_width - (2 * alien_width)):
-                self._create_alien(current_x, current_y)
-                current_x += alien_width * 2
+        current_y = alien_height
+        current_x = self.settings.screen_width - (2 * alien_width)
 
-            #finished a row; reset x value, and increment y value.
-            current_x = alien_width
+        while current_y < (self.settings.screen_height - (3 * alien_height)):
+            current_x = self.settings.screen_width - (2 * alien_width)
+            while current_x > (3 * alien_width):
+                self._create_alien(current_x, current_y)
+                current_x -= alien_width * 2
+
             current_y += alien_height * 2
 
     def _create_alien(self, x_position, y_position):
         """Create an alien and place it in the fleet."""
         new_alien = Alien(self)
         new_alien.x = x_position
+        new_alien.y = y_position
+        
         new_alien.rect.x = new_alien.x
-        new_alien.rect.y = y_position
+        new_alien.rect.y = new_alien.y 
         self.aliens.add(new_alien)
 
     def run_game(self):
@@ -80,7 +83,7 @@ class AlienInvasion:
     def _change_fleet_direction(self):
         """Drop the entire fleet and change the fleet's direction."""
         for alien in self.aliens.sprites():
-            alien.rect.y += self.settings.fleet_drop_speed
+            alien.rect.x -= self.settings.fleet_drop_speed
         self.settings.fleet_direction *= -1
 
     def _update_aliens(self):
@@ -93,7 +96,7 @@ class AlienInvasion:
             print("Ship hit!")
             self.ship_hit()
         
-        self.check_aliens_bottom()
+        self.check_aliens_left()
         
     def _check_events(self):
         """Respond to keypresses and mouse events."""
@@ -109,10 +112,10 @@ class AlienInvasion:
 
     def _check_keydown_events(self, event):
         """Respond to keypresses."""
-        if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = True
-        elif event.key == pygame.K_LEFT:
-            self.ship.moving_left = True
+        if event.key == pygame.K_UP:
+            self.ship.moving_up = True
+        elif event.key == pygame.K_DOWN:
+            self.ship.moving_down = True
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
 
@@ -121,8 +124,10 @@ class AlienInvasion:
     
     def _check_keyup_events(self, event):
         """Respond to key releases."""
-        if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = False
+        if event.key == pygame.K_UP:
+            self.ship.moving_up = False
+        elif event.key == pygame.K_DOWN:
+            self.ship.moving_down = False
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
 
@@ -182,10 +187,10 @@ class AlienInvasion:
         else:
             self.game_active = False
     
-    def check_aliens_bottom(self):
-        """Check if any aliens have reached the bottom of the screen."""
+    def check_aliens_left(self):
+        """Check if any aliens have reached the left of the screen."""
         for alien in self.aliens.sprites():
-            if alien.rect.bottom >= self.settings.screen_height:
+            if alien.rect.left <= 0:
                 # Treat this the same as if the ship got hit.
                 self.ship_hit()
                 break
