@@ -1,3 +1,10 @@
+
+'''
+Name: Alien Invasion - Settings Module
+Author: Marvin Perez
+Purpose: Stores all game settings.
+Date: 04/19/2026
+'''
 class Settings:
     """A class to store all settings for Alien Invasion."""
 

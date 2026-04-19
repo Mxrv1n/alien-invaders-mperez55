@@ -1,3 +1,9 @@
+'''
+Name: Alien Invasion - Alien Module
+Author: Marvin Perez
+Purpose: Alien class for the Alien Invasion game.
+Date: 04/19/2026
+'''
 import pygame
 from pygame.sprite import Sprite
 class Alien(Sprite):

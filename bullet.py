@@ -1,3 +1,9 @@
+'''
+Name: Alien Invasion - Bullet Module
+Author: Marvin Perez
+Purpose: Bullet class for the Alien Invasion game.
+Date: 04/19/2026
+'''
 import pygame
 from pygame.sprite import Sprite
 

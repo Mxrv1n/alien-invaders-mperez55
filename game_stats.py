@@ -1,3 +1,9 @@
+'''
+Name: Alien Invasion - Game Stats Module
+Author: Marvin Perez
+Purpose: Tracks game statistics.
+Date: 04/19/2026
+'''
 class GameStats:
     """Track statistics for Alien Invasion."""
 

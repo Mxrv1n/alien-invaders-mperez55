@@ -1,3 +1,9 @@
+'''
+Name: Alien Invasion
+Author: Marvin Perez
+Purpose: Main module for the Alien Invasion game.
+Date: 04/19/2026
+'''
 import sys
 import pygame
 from ship import Ship
