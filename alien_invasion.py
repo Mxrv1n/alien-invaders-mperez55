@@ -165,12 +165,12 @@ class AlienInvasion:
 
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
-        pygame.display.flip()
 
         #draw the play button if the game is inactive.
         if not self.game_active:
             self.play_button.draw_button()
     
+        pygame.display.flip()
     def ship_hit(self):
         """Respond to the ship being hit by an alien."""
         #decrement ships_left.

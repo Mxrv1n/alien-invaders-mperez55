@@ -5,7 +5,7 @@ class Button:
     def __init__(self,ai_game,msg):
         """Initialize button attributes"""
         self.screen = ai_game.screen
-        self.screen.rect = self.screen.get_rect()
+        self.screen_rect = self.screen.get_rect()
 
         #set the dimensions and properties of the button
         self.width, self.height = 200, 50
@@ -15,7 +15,7 @@ class Button:
 
         #build the button's rect object and center it
         self.rect = pygame.Rect(0, 0, self.width, self.height)
-        self.rect.center = self.screen.rect.center
+        self.rect.center = self.screen_rect.center
 
         #the button message needs to be prepped only once
         self._prep_msg(msg)
