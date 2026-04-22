@@ -29,7 +29,7 @@ class AlienInvasion:
 
         self._create_fleet()
 
-        #start alien invasion in an active state.
+        #start alien invasion in an inactive state.
         self.game_active = True
 
     def _create_fleet(self):
