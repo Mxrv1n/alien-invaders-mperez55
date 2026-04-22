@@ -6,6 +6,7 @@ from bullet import Bullet
 from alien import Alien
 from time import sleep
 from game_stats import GameStats
+from button import Button
 
 class AlienInvasion:
     """Class to manage game assets and behavior."""
@@ -30,7 +31,10 @@ class AlienInvasion:
         self._create_fleet()
 
         #start alien invasion in an inactive state.
-        self.game_active = True
+        self.game_active = False
+
+        #make the play button.
+        self.play_button = Button(self, "Play")
 
     def _create_fleet(self):
         """Create the fleet of aliens"""
@@ -162,6 +166,10 @@ class AlienInvasion:
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         pygame.display.flip()
+
+        #draw the play button if the game is inactive.
+        if not self.game_active:
+            self.play_button.draw_button()
     
     def ship_hit(self):
         """Respond to the ship being hit by an alien."""
