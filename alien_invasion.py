@@ -125,6 +125,7 @@ class AlienInvasion:
             # Reset the game statistics.
             self.stats.reset_stats()
             self.sb.prep_score()
+            self.sb.prep_level()
 
             # Get rid of any remaining aliens and bullets.
             self.aliens.empty()
@@ -193,6 +194,12 @@ class AlienInvasion:
             self._create_fleet()
             self.settings.increase_speed()
 
+            # Increase level.
+            self.stats.level += 1
+            self.sb.prep_level()
+
+
+
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.settings.bg_color)
@@ -210,7 +217,7 @@ class AlienInvasion:
             self.play_button.draw_button()
     
         pygame.display.flip()
-        
+
     def ship_hit(self):
         """Respond to the ship being hit by an alien."""
         #decrement ships_left.
