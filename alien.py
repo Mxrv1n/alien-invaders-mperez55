@@ -10,7 +10,7 @@ class Alien(Sprite):
         self.settings = ai_game.settings
 
         # Load the alien image and set its rect attribute as well as scaling it .
-        original_image = pygame.image.load('images/alien.bmp')
+        original_image = pygame.image.load('images/alien.png').convert_alpha()
         width = int(original_image.get_width() * self.settings.alien_scale)
         height = int(original_image.get_height() * self.settings.alien_scale)
         self.image = pygame.transform.scale(original_image, (width, height))
