@@ -98,7 +98,6 @@ class AlienInvasion:
 
         # Look for alien-ship collisions.
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
-            print("Ship hit!")
             self.ship_hit()
         
         self.check_aliens_bottom()
@@ -186,7 +185,8 @@ class AlienInvasion:
             for aliens in collisions.values():
                 self.stats.score += self.settings.alien_points * len(aliens)
             self.sb.prep_score()
-            
+            self.sb.check_high_score()
+
         if not self.aliens:
             # Destroy existing bullets and create new fleet.
             self.bullets.empty()
@@ -210,6 +210,7 @@ class AlienInvasion:
             self.play_button.draw_button()
     
         pygame.display.flip()
+        
     def ship_hit(self):
         """Respond to the ship being hit by an alien."""
         #decrement ships_left.

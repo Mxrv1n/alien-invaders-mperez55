@@ -18,7 +18,7 @@ class Settings:
         self.bullets_allowed = 5
 
         # Alien settings
-        self.fleet_drop_speed = 10
+        self.fleet_drop_speed = 25
         self.alien_scale = 2
         self.alien_spacing_x = 1.5 # horizontal spacing multiplier
         self.alien_spacing_y = 1.5  # vertical spacing multiplier
@@ -39,7 +39,7 @@ class Settings:
         """Initialize settings that change throughout the game."""
         self.ship_speed = 5
         self.bullet_speed = 10
-        self.alien_speed = 1.0
+        self.alien_speed = 4
 
         #fleet_direction of 1 represents right; -1 represents left.
         self.fleet_direction = 1
