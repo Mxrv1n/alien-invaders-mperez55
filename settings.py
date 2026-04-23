@@ -19,7 +19,7 @@ class Settings:
 
         # Alien settings
         self.fleet_drop_speed = 10
-        self.alien_scale = 1.9
+        self.alien_scale = 2
         self.alien_spacing_x = 1.5 # horizontal spacing multiplier
         self.alien_spacing_y = 1.5  # vertical spacing multiplier
 
