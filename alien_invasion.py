@@ -63,7 +63,6 @@ class AlienInvasion:
                 current_x -= alien_width * self.settings.alien_spacing_x
 
             #finished a row; reset x value, and increment y value.
-            current_x = alien_width
             current_y += alien_height * self.settings.alien_spacing_y
 
     def _create_alien(self, x_position, y_position):
@@ -124,6 +123,7 @@ class AlienInvasion:
 
             elif event.type == pygame.KEYUP:
               self._check_keyup_events(event)
+
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 self._check_play_button(mouse_pos)
