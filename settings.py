@@ -17,6 +17,7 @@ class Settings:
 
         #ship settings
         self.ship_limit = 3
+        self.distance_from_edge = 100
 
         # Bullet settings
         self.bullet_width = 15
@@ -25,7 +26,7 @@ class Settings:
         self.bullets_allowed = 3
 
         # Alien settings
-        self.fleet_drop_speed = 25
+        self.fleet_drop_speed = 50
         self.alien_scale = 2
         self.alien_spacing_x = 1.5 # horizontal spacing multiplier
         self.alien_spacing_y = 1.5  # vertical spacing multiplier

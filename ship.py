@@ -1,6 +1,8 @@
 import pygame
 from pygame.sprite import Sprite
 
+import settings
+
 class Ship(Sprite):
     """A class to manage the ship."""
 
@@ -30,7 +32,7 @@ class Ship(Sprite):
 
     def update(self):
         """Update the ship's position based on the movement flag."""
-        if self.moving_up and self.rect.top > 0:
+        if self.moving_up and self.rect.top < self.settings.distance_from_edge:
             self.y -= self.settings.ship_speed
         if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.y += self.settings.ship_speed
