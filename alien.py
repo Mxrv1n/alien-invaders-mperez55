@@ -20,6 +20,7 @@ class Alien(Sprite):
         width = int(original_image.get_width() * self.settings.alien_scale)
         height = int(original_image.get_height() * self.settings.alien_scale)
         self.image = pygame.transform.scale(original_image, (width, height))
+        self.image = pygame.transform.rotate(self.image, 270)
         self.rect = self.image.get_rect()
 
         # Start each new alien near the top right of the screen.

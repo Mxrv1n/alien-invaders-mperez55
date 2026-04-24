@@ -13,6 +13,7 @@ class Ship(Sprite):
 
         # Load the ship image and get its rect.
         self.image = pygame.image.load('images/ship.png').convert_alpha()
+        self.image = pygame.transform.rotate(self.image, 270)
         self.rect = self.image.get_rect()
 
         #Start each new ship at the bottom center of the screen.
